@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SeanCraft</title>
+    <link rel="icon" type="image/x-icon" href="sean-logo.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mrvautin/typewrite/master/dist/typewrite.min.js"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Guides:wght@400..700&display=swap");
+
+      @media (max-width: 640px) {
+        .sm-ic {
+          align-items: center;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .gr1 {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 640px) {
+        .atext-2xl {
+          font-size: 1.5rem /* 24px */;
+          line-height: 2rem /* 32px */;
+        }
+      }
+
+      summary::marker {
+        display: none;
+      }
+
+      @layer utilities {
+        .transition-max-height {
+          transition: max-height 0.5s ease-in-out;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .sm-flex-col {
+          flex-direction: column;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .w-12- {
+          width: 3rem /* 288px */;
+        }
+      }
+    </style>
+  </head>
+  <body class="">
+    <!-- component -->
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css" />
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" />
+
+    <nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg bg-blueGray-800">
+      <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
+        <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+          <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="#">SeanCraft</a
+          ><button
+            class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+            type="button"
+            onclick="toggleNavbar('example-collapse-navbar')"
+          >
+            <i class="text-white fas fa-bars"></i>
+          </button>
+        </div>
+        <div class="lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none hidden bg-blueGray-800" id="example-collapse-navbar">
+          <ul class="flex flex-col lg:flex-row list-none lg:ml-auto items-center">
+            <li class="inline-block relative">
+              <a class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="#pablo" onclick="openDropdown(event,'demo-pages-dropdown')"> Main Page </a>
+              <div class="hidden bg-white text-base z-50 float-left py-2 list-none text-left rounded shadow-lg min-w-48" id="demo-pages-dropdown">
+                <span class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"> Admin Layout </span>
+                <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"> Dashboard </a>
+                <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"> Settings </a>
+                <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"> Tables </a>
+                <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"> Maps </a>
+                <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100"></div>
+                <span class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"> Auth Layout </span>
+                <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"> Login </a>
+                <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"> Register </a>
+                <div class="h-0 mx-4 my-2 border border-solid border-blueGray-100"></div>
+                <span class="text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400"> No Layout </span>
+                <a href="#" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"> Landing </a>
+                <a href=".#" class="text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"> Profile </a>
+              </div>
+            </li>
+            <li class="flex items-center">
+              <a
+                class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-js%2F"
+                target="_blank"
+                ><i class="lg:text-blueGray-200 text-blueGray-400 fab fa-facebook text-lg leading-lg"></i><span class="lg:hidden inline-block ml-2">Share</span></a
+              >
+            </li>
+            <li class="flex items-center">
+              <a
+                class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fdemos.creative-tim.com%2Fnotus-js%2F&amp;text=Start%20your%20development%20with%20a%20Free%20Tailwind%20CSS%20and%20JavaScript%20UI%20Kit%20and%20Admin.%20Let%20Notus%20JS%20amaze%20you%20with%20its%20cool%20features%20and%20build%20tools%20and%20get%20your%20project%20to%20a%20whole%20new%20level."
+                target="_blank"
+                ><i class="lg:text-blueGray-200 text-blueGray-400 fab fa-twitter text-lg leading-lg"></i><span class="lg:hidden inline-block ml-2">Tweet</span></a
+              >
+            </li>
+            <li class="flex items-center">
+              <a class="lg:text-white lg:hover:text-blueGray-200 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold" href="https://github.com/creativetimofficial/notus-js?ref=njs-register" target="_blank"
+                ><i class="lg:text-blueGray-200 text-blueGray-400 fab fa-github text-lg leading-lg"></i><span class="lg:hidden inline-block ml-2">Star</span></a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- https://cdn.discordapp.com/attachments/1005071638045397073/1255129111177859132/DOC-20240625-WA0116.png?ex=66cf1013&is=66cdbe93&hm=8ebd4eb633f853ecda859c58a90ef1459c041b27c31824bf651ffbe74c07aac8& -->
+    <div
+      class="bg-[url('https://c4.wallpaperflare.com/wallpaper/206/790/448/minecraft-minecraft-dungeons-jungle-minecraft-dungeons-jungle-awakens-4k-hd-wallpaper-preview.jpg')] relative insert-0 bg-cover bg-center md:h-screen h-[650px] w-full top-1"
+    >
+      <div class="md:bg-gradient-to-tr bg-gradient-to-t from-slate-950 via-30% via-black to-transparent absolute insert-0 bg-cover bg-center md:h-screen h-[650px] w-full">
+        <div class="pt-56">
+          <div class="md:mx-28">
+            <div class="flex mx-6 md:justify-between flex-col md:flex-wrap">
+              <div class="pt-16 md:pt-0">
+                <div class="flex justify-start">
+                  <h1 class="font-bold text-4xl md:w-[40rem] atext-2xl text-slate-100 text-center md:-mx-10">SeanCraft Tycoon Servers Indonesia</h1>
+                </div>
+                <div class="flex justify-start pt-5">
+                  <p class="md:text-lg text-sm font-normal md:w-[32rem] text-slate-400">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Animi nobis odio aperiam reprehenderit ab, aspernatur accusamus dicta nisi veniam praesentium recusandae at in cum dolorum possimus. Explicabo reprehenderit
+                    libero maiores sequi vel optio sunt a sed ea, eius quae beatae fugit, incidunt totam assumenda iure suscipit illum. Sequi, quia animi.
+                  </p>
+                </div>
+                <div class="flex md:justify-start justify-center py-12">
+                  <button class="px-8 py-3 rounded-3xl border border-green-500 hover:bg-green-500 transition-all duration-300 text-white hover:scale-110 easi-in">Join Server</button>
+                </div>
+              </div>
+              <div class="flex md:justify-end justify-center md:mx-24 md:-mt-6 md:relative md:-top-72 absolute top-24 right-24 md:right-0 sm:top-10">
+                <img src="sean-logo.png" class="md:w-64 w-48" id="alt" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="py-20 bg-white relative">
+      <div class="bg-blue-600 md:w-96 w-24 h-[2px] absolute top-4 right-6 rounded-xl"></div>
+      <div class="bg-green-600 md:w-72 w-12- h-[2px] absolute md:top-16 top-9 md:right-6 right-24 rounded-xl"></div>
+      <div class="bg-blue-600 md:w-96 w-24 h-[2px] absolute top-4 left-6 rounded-xl"></div>
+      <div class="bg-green-600 md:w-72 w-12- h-[2px] absolute md:top-16 top-9 md:left-6 left-24 rounded-xl"></div>
+      <div class="flex py-5 justify-center">
+        <h1 class="font-bold md:text-4xl text-3xl p-1 border-b-4 border-slate-950">About</h1>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2">
+        <div class="flex justify-center">
+          <img src="pngegg.png" class="md:w-64 w-auto" alt="" />
+        </div>
+        <div class="">
+          <div class="flex justify-center md:justify-start flex-col sm-ic pt-5 gap-2">
+            <h1 class="font-bold md:text-4xl text-xl">Apa itu SeanCraft?</h1>
+            <p class="text-sm md:w-2/3 w-[90%]">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem tempore in consectetur minus, beatae rem. Incidunt est in quod inventore fuga dicta, beatae nemo delectus, libero impedit corrupti dignissimos optio pariatur
+              nisi maxime ipsa tempora ut qui necessitatibus cum laborum?
+            </p>
+          </div>
+          <div class="flex flex-col md:flex-row gap-5 pt-3 items-center">
+            <a href="#" class="text-center px-6 py-1 md:w-auto w-44 md:px-4 md:py-2 hover:cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-green-400 bg-green-500 text-white rounded-md">Group Whatsapp</a>
+            <a href="#" class="text-center px-6 py-1 md:w-auto w-44 md:px-4 md:py-2 hover:cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-emerald-400 bg-emerald-500 text-white rounded-md">Vote Server</a>
+            <a href="#" class="text-center px-6 py-1 md:w-auto w-44 md:px-4 md:py-2 hover:cursor-pointer transition-all duration-300 hover:scale-105 hover:bg-blue-400 bg-blue-500 text-white rounded-md">Discord Server</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mt-2 md:pt-0 pt-10">
+      <div class="bg-gradient-to-b from-slate-900 to-slate-950">
+        <div class="pt-20">
+          <div class="flex justify-center">
+            <h1 class="text-slate-100 font-semibold text-4xl">Features</h1>
+          </div>
+          <div class="flex justify-center mt-2">
+            <div class="md:w-80 w-28 h-[2px] bg-cyan-500"></div>
+          </div>
+          <div class="pt-10 flex justify-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10">
+              <div class="bg-transparent w-auto h-auto mx-4 py-2 md:px-8 rounded-md md:py-4 border border-white transition-all duration-300 hover:scale-105 md:hover:scale-110 hover:cursor-pointer hover:bg-zinc-900">
+                <div class="pt-3 flex justify-start mx-12 gap-3">
+                  <img src="https://img.icons8.com/ios/50/FFFFFF/money-bag-euro.png" alt="money-bag-euro" class="md:w-12 -mt-2" />
+                  <h1 class="text-slate-100 font-semibold md:text-2xl text-lg text-start">Survival Economy</h1>
+                </div>
+                <div class="pt-4 flex justify-start text-sm md:text-xl mx-3 md:w-72">
+                  <p class="text-slate-300">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo culpa earum vel voluptate delectus commodi magni a eum vero eligendi?</p>
+                </div>
+              </div>
+              <div class="bg-transparent w-auto h-auto mx-4 py-2 md:px-8 rounded-md md:py-4 border border-white transition-all duration-300 hover:scale-105 md:hover:scale-110 hover:cursor-pointer hover:bg-zinc-900">
+                <div class="pt-3 flex justify-start mx-12 gap-3">
+                  <img src="https://img.icons8.com/ios/50/FFFFFF/island-on-water.png" class="md:w-12 -mt-2" alt="island-on-water" />
+                  <h1 class="text-slate-100 font-semibold md:text-2xl text-lg text-start">Skyblocks</h1>
+                </div>
+                <div class="pt-4 flex justify-start text-sm md:text-xl mx-3 md:w-72">
+                  <p class="text-slate-300">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo culpa earum vel voluptate delectus commodi magni a eum vero eligendi?</p>
+                </div>
+              </div>
+              <div class="bg-transparent w-auto h-auto mx-4 py-2 md:px-8 rounded-md md:py-4 border border-white transition-all duration-300 hover:scale-105 md:hover:scale-110 hover:cursor-pointer hover:bg-zinc-900">
+                <div class="pt-3 flex justify-start mx-12 gap-3">
+                  <img src="https://img.icons8.com/ios/50/FFFFFF/money-bag-euro.png" alt="money-bag-euro" class="md:w-12 -mt-2" />
+                  <h1 class="text-slate-100 font-semibold md:text-2xl text-lg text-start">Survival Economy</h1>
+                </div>
+                <div class="pt-4 flex justify-start text-sm md:text-xl mx-3 md:w-72">
+                  <p class="text-slate-300">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo culpa earum vel voluptate delectus commodi magni a eum vero eligendi?</p>
+                </div>
+              </div>
+              <div class="bg-transparent w-auto h-auto mx-4 py-2 md:px-8 rounded-md md:py-4 border border-white transition-all duration-300 hover:scale-105 md:hover:scale-110 hover:cursor-pointer hover:bg-zinc-900">
+                <div class="pt-3 flex justify-start mx-12 gap-3">
+                  <img src="https://img.icons8.com/ios/50/FFFFFF/island-on-water.png" class="md:w-12 -mt-2" alt="island-on-water" />
+                  <h1 class="text-slate-100 font-semibold md:text-2xl text-lg text-start">Skyblocks</h1>
+                </div>
+                <div class="pt-4 flex justify-start text-sm md:text-xl mx-3 md:w-72">
+                  <p class="text-slate-300">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo culpa earum vel voluptate delectus commodi magni a eum vero eligendi?</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="py-16">
+          <div class="py-10">
+            <div class="py-4 flex justify-center">
+              <h1 class="font-bold text-white text-4xl">Redeem Code</h1>
+            </div>
+            <div class="flex justify-center">
+              <div class="md:w-96 w-64 h-[2px] bg-cyan-500"></div>
+            </div>
+          </div>
+          <div class="flex justify-center">
+            <div class="md:w-96 w-72 border border-white h-44 rounded-md bg-slate-700">
+              <div class="flex justify-center pt-2 mx-2">
+                <h1 class="text-lg text-center font-semibold text-white">Dapatkan Hadiah Menarik Setelah Menukarkan Code</h1>
+              </div>
+              <div class="flex justify-center items-center pt-7">
+                <div class="md:w-72 w-64 h-16 bg-black rounded-xl">
+                  <div class="flex justify-center items-center">
+                    <h1 class="text-2xl font-bold text-white pt-4" id="a"></h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-white">
+          <div class="py-10 md:flex justify-center">
+            <div class="grid md:grid-cols-2 grid-cols-1">
+              <div class="flex justify-center py-5">
+                <div class="grid justify-center">
+                  <div class="py-5">
+                    <h1 class="text-3xl font-semibold text-black pb-4 text-center">Pertanyaan Umum</h1>
+                    <p class="text-slate-00 text-sm w-[28rem] mx-auto text-center">Berikut telah kami rangkum beberapa pertanyaan yang sering ditanyakan client terkait layanan kami.</p>
+                  </div>
+                  <img src="https://histore-demo.babel.id/landing/images/landing/qna.png" class="w-40 mx-auto" alt="" />
+                </div>
+              </div>
+              <div class="">
+                <div class="flex justify-start flex-col gap-5 mx-4">
+                  <div class="grid grid-cols-1 gap-7 overflow-hidden">
+                    <details class="border border-slate-900 outline-none rounded-md px-4 md:w-[30rem] group bg-slate-300 hover:border hover:border-white transition-all duration-300 md:py-2">
+                      <summary class="list-none hover:cursor-pointer font-bold md:text-4xl text-lg text-black text-center">Kenapa Memilih SeanMC 🤔</summary>
+                      <div class="transition-all duration-1000 ease-out max-h-20 overflow-hidden group-open:max-h-96 py-4">
+                        <p class="py-[2px] text-slate-800 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quaerat voluptatem rerum ad ratione sequi distinctio mollitia qui voluptatum voluptas.</p>
+                      </div>
+                    </details>
+                    <details class="border border-slate-900 outline-none rounded-md px-4 md:w-[30rem] group bg-slate-300 hover:border hover:border-white transition-all duration-300 md:py-2">
+                      <summary class="list-none hover:cursor-pointer font-bold md:text-4xl text-lg text-black text-center">Bagaimana Cara Bermain Di SeanMC</summary>
+                      <div class="transition-all duration-1000 ease-out max-h-20 overflow-hidden group-open:max-h-96 py-4">
+                        <p class="py-[2px] text-slate-800 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quaerat voluptatem rerum ad ratione sequi distinctio mollitia qui voluptatum voluptas.</p>
+                      </div>
+                    </details>
+                    <details class="border border-slate-900 outline-none rounded-md px-4 md:w-[30rem] group bg-slate-300 hover:border hover:border-white transition-all duration-300 md:py-2">
+                      <summary class="list-none hover:cursor-pointer font-bold md:text-4xl text-lg text-black text-center">Apa yang seru di SeanMC</summary>
+                      <div class="transition-all duration-1000 ease-out max-h-20 overflow-hidden group-open:max-h-96 py-4">
+                        <p class="py-[2px] text-slate-800 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quaerat voluptatem rerum ad ratione sequi distinctio mollitia qui voluptatum voluptas.</p>
+                      </div>
+                    </details>
+                    <details class="border border-slate-900 outline-none rounded-md px-4 md:w-[30rem] group bg-slate-300 hover:border hover:border-white transition-all duration-300 md:py-2">
+                      <summary class="list-none hover:cursor-pointer font-bold md:text-4xl text-lg text-black text-center">Apa sih maksudnya SeanPass?</summary>
+                      <div class="transition-all duration-1000 ease-out max-h-20 overflow-hidden group-open:max-h-96 py-4">
+                        <p class="py-[2px] text-slate-800 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quaerat voluptatem rerum ad ratione sequi distinctio mollitia qui voluptatum voluptas.</p>
+                      </div>
+                    </details>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="bg-gray-900 text-white py-10">
+      <div class="container mx-auto grid md:grid-cols-4 gr1 gap-8 text-center md:text-left">
+        <!-- Programs Column -->
+        <div>
+          <h1 class="font-bold text-xl pb-4">Programs</h1>
+          <ul class="text-sm space-y-2">
+            <li>Project</li>
+            <li>Kontributor</li>
+          </ul>
+        </div>
+
+        <!-- Service Column -->
+        <div>
+          <h1 class="font-bold text-xl pb-4">Syarat & Ketentuan</h1>
+          <ul class="text-sm space-y-2">
+            <li>Lorem, ipsum dolor.</li>
+            <li>Lorem, ipsum dolor.</li>
+          </ul>
+        </div>
+
+        <!-- Contact Column -->
+        <div>
+          <h1 class="font-bold text-xl pb-4">Kontributor</h1>
+          <a href="https://instagram.com/xfazz24" class="font-bold text-xl">XFazz</a>
+        </div>
+
+        <!-- Form & Social Media -->
+        <div class="space-y-4">
+          <h1 class="font-bold text-xl pb-4">Social Media</h1>
+          <!-- Social Media Icons -->
+          <div class="flex justify-center md:justify-start space-x-4 text-2xl">
+            <a href="#" class="text-green-500"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" class="text-pink-600"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-red-600"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="text-blue-600"><i class="fab fa-facebook"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="container mx-auto mt-10 border-t border-gray-700"></div>
+
+      <!-- Footer Bottom -->
+      <div class="flex justify-center">
+        <div class="container mx-10 flex justify-between items-center mt-4 text-sm">
+          <div class="font-bold text-cyan-500 text-3xl">SeanCraft</div>
+          <div>@2024 Copyright SeanCraft</div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+        $("#a").typewrite({
+          actions: [
+            { type: "Saya_Suka_Sean" },
+            { delay: 1500 },
+            { remove: { num: 14, type: "stepped" } },
+            { select: { from: 11, to: 16 } },
+            { delay: 2000 },
+            { type: "Sean_Pass" },
+            { delay: 2000 },
+            { remove: { num: 14, type: "stepped" } },
+            { type: "Mari_Dukung_XFazz" },
+          ],
+        });
+      });
+    </script>
+  </body>
+</html>
